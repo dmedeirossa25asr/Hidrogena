@@ -14,8 +14,10 @@ $connectionString = "(DESCRIPTION=
 )";
 
 $conn = oci_connect($username, $password, $connectionString);
-if (!$conn) {
+if ($conn) {
+    echo "✅ Conexión a Oracle correcta";
+} else {
     $e = oci_error();
-    die("Error al conectar a Oracle: " . $e['message']);
+    echo "❌ Error Oracle: " . $e['message'];
 }
 ?>
