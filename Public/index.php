@@ -1,19 +1,19 @@
 <?php 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-require_once __DIR__ . '/app/auth.php'; ?>
+require_once __DIR__ . '/../app/auth.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Hidrogena</title>
-    <link rel="stylesheet" href="Styles/header.css">
-    <link rel="stylesheet" href="Styles/body.css">
-    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="./Styles/header.css">
+    <link rel="stylesheet" href="./Styles/body.css">
+    <link rel="stylesheet" href="./Styles/footer.css">
 </head>
 <body>
-<?php include __DIR__ . '/app/header.php'; ?>
+<?php include __DIR__ . '/../app/header.php'; ?>
 
 <main class="login-main">
     <h2>Iniciar Sesión</h2>
@@ -25,6 +25,7 @@ require_once __DIR__ . '/app/auth.php'; ?>
     </form>
 </main>
 
-<?php include __DIR__ . '/app/footer.php'; ?>
+<?php include __DIR__ . '/../app/footer.php'; ?>
+<script src="Scripts/main.js"></script>
 </body>
 </html>
