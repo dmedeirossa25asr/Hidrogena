@@ -24,5 +24,6 @@ if (!isset($_SESSION['usuario'])) {
 </main>
 
 <?php include __DIR__ . '/../app/footer.php'; ?>
+<script src="Scripts/main.js"></script>
 </body>
 </html>

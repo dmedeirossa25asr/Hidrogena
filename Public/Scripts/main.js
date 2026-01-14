@@ -1,4 +1,3 @@
-// Archivo: Public/Scripts/main.js
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.main-nav');

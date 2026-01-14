@@ -1,9 +1,28 @@
 .main-footer {
-    background-color: #0077cc;
-    color: #fff;
+    background-color: #f8f8f8; /* color claro */
+    color: #333;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.main-footer a {
+    color: #0077cc;
+    text-decoration: none;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
+}
+
+.main-footer .socials,
+.main-footer .links {
+    margin-bottom: 10px;
+}
+.main-footer .socials a {
+    margin: 0 5px;
+    font-size: 1.2rem;
 }
