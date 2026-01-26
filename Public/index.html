@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hidrógena | Hidrógeno Verde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/scripts.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="img/img1.jpg" alt="img1">
+  <img src="img/img2.jpg" alt="img2">
+  <img src="img/img3.jpg" alt="img3">
+</section>
+
+<section class="content">
+  <h2>Proyecto de Hidrógeno Verde</h2>
+  <p>
+    El Gobierno Vasco financia un proyecto piloto para la
+    <strong>generación, almacenamiento y distribución de hidrógeno verde</strong>.
+    La hidrogenera utiliza placas solares y aerogeneradores,
+    garantizando una producción 100% renovable.
+  </p>
+</section>
+
+<section id="servicios" class="content">
+  <h2>Servicios</h2>
+  <div class="cards">
+    <div class="card">Producción de hidrógeno mediante energías renovables.</div>
+    <div class="card">Almacenamiento con control de capacidad en tiempo real.</div>
+    <div class="card">Distribución segura a empresas colaboradoras.</div>
+  </div>
+</section>
+
+<section id="control" class="content">
+  <h2>Centro de Control</h2>
+  <p>Supervisión diaria de producción y distribución. Generación de <strong>alertas automáticas</strong> ante niveles críticos.</p>
+  <p>Comunicación segura entre centrales mediante <strong>VPN</strong>.</p>
+</section>
+
+<section id="pedidos" class="content">
+  <h2>Solicitud de Pedidos</h2>
+  <form class="form">
+    <input type="text" placeholder="Empresa" required>
+    <input type="email" placeholder="Email de contacto" required>
+    <input type="number" placeholder="Cantidad de hidrógeno (kg)" required>
+    <textarea placeholder="Observaciones"></textarea>
+    <button class="btn">Enviar pedido</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<script>
+  // Cargar header y footer
+  fetch('../app/header.html')
+    .then(res => res.text())
+    .then(data => document.getElementById('header').innerHTML = data);
+
+  fetch('../app/footer.html')
+    .then(res => res.text())
+    .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+
+</body>
+</html>
