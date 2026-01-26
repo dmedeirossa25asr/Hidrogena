@@ -71,6 +71,16 @@ p {
   height: 35px;
 }
 
+.login-icon i {
+  color: #111827;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.login-icon i:hover {
+  color: #0ea5e9;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -83,6 +93,18 @@ p {
   height: 3px;
   background: #111827;
   border-radius: 2px;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .hero {
@@ -106,8 +128,9 @@ p {
 }
 
 .content {
-  padding: 60px 120px;
-  max-width: 1200px;
+  width: 100%;
+  gap: 25px;
+  padding: 50px 120px;
   margin: 0 auto;
 }
 
@@ -128,6 +151,7 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   margin-top: 30px;
+  width: 100%;
 }
 
 .card {
@@ -222,87 +246,4 @@ p {
 
 .main-footer .links {
   font-size: 0.9rem;
-}
-
-@media (max-width: 1024px) {
-  .main-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 25px 60px;
-  }
-
-  .nav {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-  }
-
-  .logo img {
-    max-height: 120px;
-  }
-
-  .hero {
-    padding: 50px 60px;
-  }
-
-  .content {
-    padding: 60px 60px;
-  }
-}
-
-@media (max-width: 768px) {
-   .content {
-    padding: 40px 20px;
-  }
-
-  .main-header {
-    padding: 15px 20px;
-  }
-
-  .nav {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    display: none;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  .nav.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .cards {
-    gap: 20px;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 30px 20px;
-  }
-
-  .content {
-    padding: 40px 20px;
-  }
-
-  .main-footer {
-    padding: 40px 20px;
-    gap: 20px;
-  }
-
-  .main-footer .socials,
-  .main-footer .links {
-    gap: 15px;
-    flex-direction: column;
-    align-items: center;
-  }
 }

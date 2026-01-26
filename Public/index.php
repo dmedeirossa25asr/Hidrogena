@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <title>Hidrógena | Hidrógeno Verde</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Links -->
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/scripts.js" defer></script>
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
@@ -82,17 +86,32 @@
   </form>
 </section>
 
-
 <!-- FOOTER -->
 <div id="footer"></div>
 
+<!-- Scripts -->
+<script src="js/main.js"></script>
+
 <script>
   // Cargar header y footer
-  fetch('../app/header.html')
+  fetch('../app/header.php')
     .then(res => res.text())
-    .then(data => document.getElementById('header').innerHTML = data);
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
 
-  fetch('../app/footer.html')
+      // Ahora que el header está en el DOM, inicializamos el menú hamburguesa
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      if(hamburger && navMenu){
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          hamburger.classList.toggle('open');
+        });
+      }
+    });
+
+  fetch('../app/footer.php')
     .then(res => res.text())
     .then(data => document.getElementById('footer').innerHTML = data);
 </script>
