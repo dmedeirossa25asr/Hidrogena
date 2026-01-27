@@ -25,9 +25,11 @@ p {
   padding: 15px 120px;
   background-color: #F5FFFA;
   border-bottom: 1px solid #e5e7ebbe;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo img {

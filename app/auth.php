@@ -1,24 +1,37 @@
 <?php
+// app/auth.php
 session_start();
 require_once __DIR__ . '/../config/database.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
-
-    $sql = "SELECT * FROM usuarios WHERE usuario = :usuario AND contrasena = :contrasena";
+// Función para login
+function login($usuario, $contrasena) {
+    global $conn;
+    $sql = "SELECT idUsuario, tipo FROM usuarios WHERE usuario = :usuario AND contrasena = :contrasena";
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ':usuario', $usuario);
     oci_bind_by_name($stmt, ':contrasena', $contrasena);
     oci_execute($stmt);
 
-    if ($row = oci_fetch_assoc($stmt)) {
-        $_SESSION['usuario'] = $row['USUARIO'];
+    $row = oci_fetch_assoc($stmt);
+    if ($row) {
+        $_SESSION['idUsuario'] = $row['IDUSUARIO'];
         $_SESSION['tipo'] = $row['TIPO'];
-        header("Location: dashboard.php");
+        return true;
+    }
+    return false;
+}
+
+// Función para verificar si el usuario está logueado
+function check_login() {
+    if (!isset($_SESSION['idUsuario'])) {
+        header('Location: index.php');
         exit;
-    } else {
-        $error = "Usuario o contraseña incorrectos";
     }
 }
-?>
+
+// Función para logout
+function logout() {
+    session_destroy();
+    header('Location: index.php');
+    exit;
+}
