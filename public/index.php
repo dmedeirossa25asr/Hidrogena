@@ -6,14 +6,15 @@ require_once __DIR__ . '/../app/auth.php';
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Hidrógena | Hidrógeno Verde</title>
+    <title>Hidrogena | Hidrógeno Verde</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
+    
+  </head>
 <body>
 
 <?php include __DIR__ . '/../app/header.php'; ?>

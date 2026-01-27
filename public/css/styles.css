@@ -14,10 +14,11 @@ body {
 p {
   line-height: 1.8;
   font-size: 1.05rem;
-  color: #ffffff;
+  color: #374151;
   margin-bottom: 20px;
 }
 
+/* Header */
 .main-header {
   display: flex;
   align-items: center;
@@ -61,7 +62,6 @@ p {
   color: #0ea5e9;
 }
 
-
 .header-right {
   display: flex;
   align-items: center;
@@ -86,49 +86,66 @@ p {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
   cursor: pointer;
-  gap: 5px;
+  position: relative;
 }
 
 .hamburger span {
-  width: 25px;
+  display: block;
   height: 3px;
+  width: 100%;
   background: #111827;
   border-radius: 2px;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
 }
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.hamburger span:nth-child(3) { bottom: 0; }
 
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg);
+  top: 50%;
 }
-
 .hamburger.open span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg);
+  top: 50%;
 }
 
+/* Hero */
 .hero {
+  padding: 220px 120px 50px 120px;
+}
+
+.hero-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 50px 120px;
-  justify-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
 }
 
-.hero img {
+.hero-images img {
   width: 100%;
-  height: 500px;
-  border-radius: 12px;
+  height: 550px;
   object-fit: cover;
-  transition: transform 0.3s;
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.hero img:hover {
+.hero-images img:hover {
   transform: scale(1.05);
-}
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);}
 
+/* Content */
 .content {
   width: 100%;
   gap: 25px;
@@ -140,12 +157,6 @@ p {
   color: #0ea5e9;
   margin-bottom: 20px;
   font-size: 2rem;
-}
-
-.content p {
-  margin-bottom: 20px;
-  color: #374151;
-  font-size: 1rem;
 }
 
 .cards {
@@ -172,10 +183,7 @@ p {
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-.card h3, .card p {
-  margin-bottom: 10px;
-}
-
+/* Forms */
 .form input,
 .form textarea {
   width: 100%;
@@ -210,6 +218,7 @@ p {
   background: #0284c7;
 }
 
+/* Footer */
 .main-footer {
   background-color: #0ea5e9;
   color: #ffffff;
