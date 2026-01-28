@@ -31,15 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="/Hidrogena/public/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <style>
-        /* Ajuste para que el contenido no quede debajo del header fijo */
-        main { margin-top: 160px; display: flex; justify-content: center; }
-        .login-form { width: 100%; max-width: 400px; padding: 20px; border: 1px solid #d1d5db; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #fff; }
-        .login-form input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #d1d5db; border-radius: 8px; }
-        .login-form button { width: 100%; padding: 12px; margin-top: 15px; background: #0ea5e9; color: #fff; border-radius: 8px; border: none; cursor: pointer; }
-        .login-form button:hover { background: #0284c7; }
-        .error { color: red; margin-bottom: 10px; }
-    </style>
 </head>
 <body>
 
