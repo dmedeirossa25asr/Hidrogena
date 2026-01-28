@@ -67,15 +67,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="POST">
-            <input type="text" name="usuario" placeholder="Usuario" required>
-            <input type="password" name="contrasena" placeholder="Contraseña" required>
-            <input type="password" name="contrasena2" placeholder="Repetir contraseña" required>
-            <button type="submit">Registrarse</button>
+            <input type="text" name="usuario" placeholder="<?= htmlspecialchars($translations['usuario']) ?>" required>
+            <input type="password" name="contrasena" placeholder="<?= htmlspecialchars($translations['contrasena']) ?>" required>
+            <input type="password" name="contrasena2" placeholder="<?= htmlspecialchars($translations['repetir_contrasena']) ?>" required>
+            <button type="submit"><?= htmlspecialchars($translations['registro']) ?></button>
         </form>
 
         <p class="register-link">
-            ¿Ya tienes una cuenta? 
-            <a href="login.php"><?= $translations['iniciar_sesion'] ?? 'Inicia sesión aquí' ?></a>
+            <?= htmlspecialchars($translations['ya_cuenta']) ?> 
+            <a href="login.php"><?= htmlspecialchars($translations['iniciar_sesion']) ?></a>
         </p>
     </div>
 </main>
