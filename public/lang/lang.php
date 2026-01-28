@@ -9,6 +9,8 @@ return [
         'usuario' => 'Usuario',
         'contrasena' => 'Contraseña',
         'ingresar' => 'Ingresar',
+        'no_cuenta' => '¿Aún no tienes cuenta?',
+        'registrarse' => 'Regístrate aquí',
         'login_error' => 'Usuario o contraseña incorrectos',
 
         'proyecto_titulo' => 'Proyecto de Hidrógeno Verde',
@@ -38,6 +40,7 @@ return [
         'privacy' => 'Política de Privacidad',
         'safety' => 'Política de Seguridad',
         'all_rights' => 'Todos los derechos reservados'
+        
     ],
     'en' => [
         'inicio' => 'Home',
@@ -48,6 +51,9 @@ return [
         'usuario' => 'Username',
         'contrasena' => 'Password',
         'ingresar' => 'Sign In',
+        'no_cuenta' => "Don't have an account yet?",
+        'registrarse' => "Register here",
+
         'login_error' => 'Incorrect username or password',
 
         'proyecto_titulo' => 'Green Hydrogen Project',
@@ -87,6 +93,8 @@ return [
         'usuario' => 'Erabiltzailea',
         'contrasena' => 'Pasahitza',
         'ingresar' => 'Sartu',
+        'no_cuenta' => "Oraindik ez duzu konturik?",
+        'registrarse' => "Erregistratu hemen",
         'login_error' => 'Erabiltzaile edo pasahitz okerra',
 
         'proyecto_titulo' => 'Hidrogeno Berdea Proiektua',

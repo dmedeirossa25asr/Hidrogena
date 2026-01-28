@@ -1,4 +1,4 @@
-/* RESET */
+/* --- RESET --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,7 +25,7 @@ p {
   margin-bottom: 20px;
 }
 
-/* HEADER */
+/* --- HEADER --- */
 .main-header {
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ p {
   color: #0ea5e9;
 }
 
-/* HEADER RIGHT */
+/* --- HEADER RIGHT --- */
 .header-right {
   display: flex;
   align-items: center;
@@ -88,7 +88,7 @@ p {
   color: #0ea5e9;
 }
 
-/* HAMBURGER MENU */
+/* --- HAMBURGER MENU --- */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -118,7 +118,7 @@ p {
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg); top: 50%; }
 
-/* LANGUAGE SELECTOR */
+/* --- LANGUAGE SELECTOR --- */
 .lang-selector {
   display: flex;
   align-items: center;
@@ -141,7 +141,7 @@ p {
   background-color: #0ea5e9;
 }
 
-/* MAIN AND SECTIONS */
+/* --- MAIN AND SECTIONS --- */
 main {
   flex: 1;
   margin-top: 150px;
@@ -174,7 +174,6 @@ section.content p {
   color: #111827;
 }
 
-/* Logout button especial */
 .content-dashboard .btn.logout {
   background-color: #ef4444;
 }
@@ -188,7 +187,7 @@ section {
   scroll-margin-top: 120px;
 }
 
-/* HERO */
+/* --- HERO --- */
 .hero {
   padding-top: 20px;
 }
@@ -214,7 +213,7 @@ section {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* CARDS */
+/* --- CARDS --- */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -238,7 +237,7 @@ section {
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-/* FORMS */
+/* --- FORMS --- */
 .form input,
 .form textarea {
   width: 100%;
@@ -324,7 +323,22 @@ section {
     margin-bottom: 10px;
 }
 
-/* FOOTER */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
 .main-footer {
   background-color: #0ea5e9;
   color: #ffffff;
@@ -362,7 +376,7 @@ section {
   color: #0284c7;
 }
 
-/* SMOOTH SCROLL */
+/* --- SMOOTH SCROLL --- */
 html {
   scroll-behavior: smooth;
 }

@@ -7,7 +7,6 @@ $translationsAll = include __DIR__ . '/lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $error = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $contrasena = $_POST['contrasena'] ?? '';
@@ -50,6 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" name="contrasena" placeholder="<?= $translations['contrasena'] ?>" required>
             <button type="submit"><?= $translations['ingresar'] ?></button>
         </form>
+
+        <p class="register-link">
+            <?= htmlspecialchars($translations['no_cuenta']) ?> 
+            <a href="register.php"><?= htmlspecialchars($translations['registrarse']) ?></a>
+        </p>
     </div>
 </main>
 
