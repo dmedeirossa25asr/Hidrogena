@@ -38,7 +38,7 @@ p {
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: 100px;
+  height: 150px;
 }
 
 .logo img {
@@ -123,7 +123,7 @@ p {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
@@ -144,14 +144,14 @@ p {
 /* MAIN AND SECTIONS */
 main {
   flex: 1;
-  margin-top: 100px; /* espacio para header fijo */
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
 }
 
 section {
   padding: 50px 120px;
-  scroll-margin-top: 120px; /* evita que el header tape la sección */
+  scroll-margin-top: 120px;
 }
 
 /* HERO */
