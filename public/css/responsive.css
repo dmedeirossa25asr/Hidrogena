@@ -1,4 +1,6 @@
-/* Responsive */
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
 @media (max-width: 1024px) {
   .main-header {
     flex-direction: row;

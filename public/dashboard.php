@@ -14,7 +14,7 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/Hidrogena/public/css/styles.css">
+    <link rel="stylesheet" href="/Hidrogena/public/css/general.css">
     <link rel="stylesheet" href="/Hidrogena/public/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -36,7 +36,7 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
                 <div class="card">
                     <h3>Eliminar usuarios</h3>
                     <p>Elimina usuarios existentes de forma segura.</p>
-                    <a href="#" class="btn">Ir</a>
+                    <a href="/Hidrogena/public/pages/eliminar_usuarios.php" class="btn">Ir</a>
                 </div>
                 <div class="card">
                     <h3>Gestionar Base de Datos</h3>
