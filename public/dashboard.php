@@ -1,28 +1,73 @@
 <?php
 require_once __DIR__ . '/../app/auth.php';
-check_login(); // Verifica si el usuario está logueado
-include __DIR__ . '/../app/header.php';
+check_login();
+
+$lang = $_SESSION['lang'] ?? 'es';
+$translationsAll = include __DIR__ . '/../public/lang/lang.php';
+$translations = $translationsAll[$lang] ?? $translationsAll['es'];
 ?>
+<!DOCTYPE html>
+<html lang="<?= $lang ?>">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Hidrogena</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Bienvenido, <?php echo htmlspecialchars($_SESSION['tipo']); ?></h1>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/Hidrogena/public/css/styles.css">
+    <link rel="stylesheet" href="/Hidrogena/public/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
 
-<?php if ($_SESSION['tipo'] === 'Admin'): ?>
-    <p>Opciones de administración:</p>
-    <ul>
-        <li><a href="#">Crear usuarios</a></li>
-        <li><a href="#">Eliminar usuarios</a></li>
-        <li><a href="#">Gestionar Base de Datos</a></li>
-    </ul>
-<?php else: ?>
-    <p>Panel de usuario:</p>
-    <ul>
-        <li><a href="#">Ver pedidos</a></li>
-        <li><a href="#">Ver clientes</a></li>
-        <li><a href="#">Reportes</a></li>
-    </ul>
-<?php endif; ?>
+<?php include __DIR__ . '/../app/header.php'; ?>
 
-<a href="logout.php">Cerrar sesión</a>
+<main>
+    <section class="content-dashboard">
+        <h1>Bienvenido, <?= htmlspecialchars($_SESSION['tipo']); ?></h1>
 
-<?php include __DIR__ . '/../app/footer.php'; 
-?>
+        <div class="cards">
+            <?php if ($_SESSION['tipo'] === 'Admin'): ?>
+                <div class="card">
+                    <h3>Crear usuarios</h3>
+                    <p>Agrega nuevos usuarios al sistema.</p>
+                    <a href="#" class="btn">Ir</a>
+                </div>
+                <div class="card">
+                    <h3>Eliminar usuarios</h3>
+                    <p>Elimina usuarios existentes de forma segura.</p>
+                    <a href="#" class="btn">Ir</a>
+                </div>
+                <div class="card">
+                    <h3>Gestionar Base de Datos</h3>
+                    <p>Accede y administra los datos de la plataforma.</p>
+                    <a href="#" class="btn">Ir</a>
+                </div>
+            <?php else: ?>
+                <div class="card">
+                    <h3>Ver pedidos</h3>
+                    <p>Consulta todos los pedidos realizados.</p>
+                    <a href="#" class="btn">Ir</a>
+                </div>
+                <div class="card">
+                    <h3>Ver clientes</h3>
+                    <p>Revisa la lista de clientes registrados.</p>
+                    <a href="#" class="btn">Ir</a>
+                </div>
+                <div class="card">
+                    <h3>Reportes</h3>
+                    <p>Genera reportes de actividad y ventas.</p>
+                    <a href="#" class="btn">Ir</a>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div>
+            <a href="logout.php" class="btn logout">Cerrar sesión</a>
+        </div>
+    </section>
+</main>
+
+<?php include __DIR__ . '/../app/footer.php'; ?>
+</body>
+</html>

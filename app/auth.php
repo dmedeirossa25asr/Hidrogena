@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/database.php'; // Conexión a Oracle
+require_once __DIR__ . '/../config/database.php';
 
 // Función para login
 function login($usuario, $contrasena) {
@@ -30,7 +30,11 @@ function check_login() {
 
 // Función para logout
 function logout() {
+    $_SESSION = [];
     session_destroy();
+    if (isset($_COOKIE['usuario'])) {
+        setcookie('usuario', '', time() - 3600, "/");
+    }
     header('Location: index.php');
     exit;
 }

@@ -38,7 +38,7 @@ p {
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: 100px;
+  height: 150px;
 }
 
 .logo img {
@@ -144,9 +144,43 @@ p {
 /* MAIN AND SECTIONS */
 main {
   flex: 1;
-  margin-top: 100px;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
+}
+
+section.content h2 {
+    color: #0ea5e9;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+section.content p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Dashboard content */
+.content-dashboard {
+  margin-top: 80px;
+  padding: 40px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.content-dashboard h1 {
+  color: #111827;
+}
+
+/* Logout button especial */
+.content-dashboard .btn.logout {
+  background-color: #ef4444;
+}
+
+.content-dashboard .btn.logout:hover {
+  background-color: #dc2626;
 }
 
 section {

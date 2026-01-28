@@ -7,11 +7,14 @@ $translationsAll = include __DIR__ . '/lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $error = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $contrasena = $_POST['contrasena'] ?? '';
 
     if (login($usuario, $contrasena)) {
+        $_SESSION['usuario'] = $usuario;
+        setcookie('usuario', $usuario, time() + 86400, "/");
         header('Location: dashboard.php');
         exit;
     } else {

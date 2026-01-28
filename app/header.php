@@ -6,6 +6,8 @@ $lang = $_SESSION['lang'] ?? 'es';
 $translationsAll = include __DIR__ . '/../public/lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 $currentPage = basename($_SERVER['PHP_SELF']);
+
+$logged_in = isset($_COOKIE['usuario']);
 ?>
 
 <header class="main-header">
@@ -27,7 +29,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <a href="?lang=eu" <?php if ($lang === 'eu') echo 'class="active-lang"'; ?>>EU</a>
         </div>
 
-        <a href="login.php" class="login-icon">
+        <a href="<?= $logged_in ? 'dashboard.php' : 'login.php' ?>" class="login-icon">
             <i class="fas fa-user fa-lg"></i>
         </a>
 
