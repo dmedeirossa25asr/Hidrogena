@@ -120,6 +120,25 @@ p {
   top: 50%;
 }
 
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.1rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.lang-selector a {
+  text-decoration: none;
+  color: #111827;
+  transition: color 0.3s;
+}
+
+.lang-selector a:hover {
+  color: #0ea5e9;
+}
+
 /* Hero */
 .hero {
   padding: 220px 120px 50px 120px;
