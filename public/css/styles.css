@@ -1,7 +1,14 @@
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -18,7 +25,7 @@ p {
   margin-bottom: 20px;
 }
 
-/* Header */
+/* HEADER */
 .main-header {
   display: flex;
   align-items: center;
@@ -31,6 +38,7 @@ p {
   left: 0;
   width: 100%;
   z-index: 1000;
+  height: 100px;
 }
 
 .logo img {
@@ -58,19 +66,16 @@ p {
   transition: color 0.3s;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a.active {
   color: #0ea5e9;
 }
 
+/* HEADER RIGHT */
 .header-right {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-.login-icon img {
-  width: 35px;
-  height: 35px;
 }
 
 .login-icon i {
@@ -83,6 +88,7 @@ p {
   color: #0ea5e9;
 }
 
+/* HAMBURGER MENU */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -108,40 +114,49 @@ p {
 .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
 .hamburger span:nth-child(3) { bottom: 0; }
 
-.hamburger.open span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 50%;
-}
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 50%;
-}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg); top: 50%; }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg); top: 50%; }
 
+/* LANGUAGE SELECTOR */
 .lang-selector {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.1rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: #111827;
 }
 
 .lang-selector a {
   text-decoration: none;
   color: #111827;
-  transition: color 0.3s;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
-.lang-selector a:hover {
-  color: #0ea5e9;
+.lang-selector a:hover,
+.lang-selector a.active-lang {
+  color: #ffffff;
+  background-color: #0ea5e9;
 }
 
-/* Hero */
+/* MAIN AND SECTIONS */
+main {
+  flex: 1;
+  margin-top: 100px; /* espacio para header fijo */
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: 50px 120px;
+  scroll-margin-top: 120px; /* evita que el header tape la sección */
+}
+
+/* HERO */
 .hero {
-  padding: 220px 120px 50px 120px;
+  padding-top: 20px;
 }
 
 .hero-images {
@@ -162,28 +177,15 @@ p {
 
 .hero-images img:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);}
-
-/* Content */
-.content {
-  width: 100%;
-  gap: 25px;
-  padding: 50px 120px;
-  margin: 0 auto;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-.content h2 {
-  color: #0ea5e9;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
+/* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   margin-top: 30px;
-  width: 100%;
 }
 
 .card {
@@ -202,7 +204,7 @@ p {
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-/* Forms */
+/* FORMS */
 .form input,
 .form textarea {
   width: 100%;
@@ -237,7 +239,58 @@ p {
   background: #0284c7;
 }
 
-/* Footer */
+/* --- LOGIN PAGE --- */
+.login-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 160px;
+    padding: 20px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #0ea5e9;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.login-form button:hover {
+    background: #0284c7;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
 .main-footer {
   background-color: #0ea5e9;
   color: #ffffff;
@@ -247,6 +300,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  margin-top: auto;
 }
 
 .main-footer p {
@@ -274,6 +328,7 @@ p {
   color: #0284c7;
 }
 
-.main-footer .links {
-  font-size: 0.9rem;
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
 }

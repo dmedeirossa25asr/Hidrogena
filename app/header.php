@@ -1,53 +1,40 @@
 <?php
 session_start();
-
-$lang = 'es';
 if (isset($_GET['lang']) && in_array($_GET['lang'], ['es','en','eu'])) {
-    $lang = $_GET['lang'];
-    $_SESSION['lang'] = $lang;
-} elseif (isset($_SESSION['lang'])) {
-    $lang = $_SESSION['lang'];
+    $_SESSION['lang'] = $_GET['lang'];
 }
-
-$allTranslations = include __DIR__ . '/../public/lang/lang.php';
-$translations = $allTranslations[$lang];
+$lang = $_SESSION['lang'] ?? 'es';
+$translationsAll = include __DIR__ . '/../public/lang/lang.php';
+$translations = $translationsAll[$lang] ?? $translationsAll['es'];
+$currentPage = basename($_SERVER['PHP_SELF']);
 ?>
-
 <header class="main-header">
-  <div class="logo">
-    <a href="index.php">
-      <img src="img/logo.png" alt="Hidrógena">
-    </a>
-  </div>
-
-  <nav class="nav" id="nav-menu">
-    <a href="index.php"><?= $translations['inicio'] ?></a>
-    <a href="#servicios"><?= $translations['servicios'] ?></a>
-    <a href="#control"><?= $translations['control'] ?></a>
-    <a href="#pedidos"><?= $translations['pedidos'] ?></a>
-  </nav>
-
-  <div class="header-right">
-    <div class="lang-selector">
-      <a href="?lang=es">ES</a> |
-      <a href="?lang=en">EN</a> |
-      <a href="?lang=eu">EU</a>
+    <div class="logo">
+        <a href="index.php"><img src="img/logo.png" alt="Hidrógena"></a>
     </div>
 
-    <a href="login.php" class="login-icon">
-      <i class="fas fa-user fa-lg"></i>
-    </a>
+    <nav class="nav" id="nav-menu">
+        <a href="index.php" class="<?= ($currentPage=='index.php')?'active':'' ?>"><?= $translations['inicio'] ?></a>
+        <a href="index.php#servicios"><?= $translations['servicios'] ?></a>
+        <a href="index.php#control"><?= $translations['centro_control'] ?></a>
+        <a href="index.php#pedidos"><?= $translations['pedidos'] ?></a>
+    </nav>
 
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="header-right">
+        <div class="lang-selector">
+            <a href="?lang=es" <?= $lang=='es'?'class="active-lang"':'' ?>>ES</a> |
+            <a href="?lang=en" <?= $lang=='en'?'class="active-lang"':'' ?>>EN</a> |
+            <a href="?lang=eu" <?= $lang=='eu'?'class="active-lang"':'' ?>>EU</a>
+        </div>
+
+        <a href="login.php" class="login-icon">
+            <i class="fas fa-user fa-lg"></i>
+        </a>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-  </div>
 </header>
-
-<!--
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/responsive.css">
-<script src="js/main.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">-->

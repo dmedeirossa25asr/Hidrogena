@@ -1,7 +1,6 @@
 <?php
-// app/auth.php
 session_start();
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/database.php'; // Conexión a Oracle
 
 // Función para login
 function login($usuario, $contrasena) {
@@ -21,7 +20,7 @@ function login($usuario, $contrasena) {
     return false;
 }
 
-// Función para verificar si el usuario está logueado
+// Verificar si el usuario está logueado
 function check_login() {
     if (!isset($_SESSION['idUsuario'])) {
         header('Location: index.php');
@@ -35,3 +34,4 @@ function logout() {
     header('Location: index.php');
     exit;
 }
+?>

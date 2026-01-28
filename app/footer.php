@@ -1,21 +1,25 @@
 <footer class="main-footer">
-  <div class="footer-container">
-    <p>© 2026 Hidrogena · Hidrógeno Verde</p>
-    <p>Proyecto financiado por el Gobierno Vasco</p>
+    <div class="footer-container">
+        <p>© 2026 Hidrogena · Hidrógeno Verde</p>
+        <p><?= $translations['financiado_gob'] ?></p>
 
-    <div class="socials">
-      <a href="https://instagram.com" target="_blank">Instagram</a>
-      <a href="https://facebook.com" target="_blank">Facebook</a>
-      <a href="https://twitter.com" target="_blank">X</a>
-      <a href="https://youtube.com" target="_blank">YouTube</a>
+        <div class="socials">
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">X</a>
+            <a href="https://youtube.com" target="_blank">YouTube</a>
+        </div>
+
+        <div class="links">
+            <a href="#"><?= $translations['terms'] ?></a>
+            <a href="#"><?= $translations['privacy'] ?></a>
+            <a href="#"><?= $translations['safety'] ?></a>
+        </div>
+
+        <p>&copy; <span id="year"></span> <?= $translations['hidrogeno_verde'] ?>. <?= $translations['all_rights'] ?></p>
     </div>
-
-    <div class="links">
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Safety Policy</a>
-    </div>
-
-    <p>&copy; <span id="year"></span> Hidrogena. All rights reserved.</p>
-  </div>
 </footer>
+
+<script src="/Hidrogena/public/js/main.js"></script>
+</body>
+</html>
