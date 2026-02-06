@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../app/auth.php';
+require_once __DIR__ . '/app/auth.php';
 check_login();
 
 $lang = $_SESSION['lang'] ?? 'es';
-$translationsAll = include __DIR__ . '/../public/lang/lang.php';
+$translationsAll = include __DIR__ . '/lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 ?>
 <!DOCTYPE html>
@@ -14,13 +14,13 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/Hidrogena/public/css/general.css">
-    <link rel="stylesheet" href="/Hidrogena/public/css/responsive.css">
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
-<?php include __DIR__ . '/../app/header.php'; ?>
+<?php include __DIR__ . '/app/header.php'; ?>
 
 <main>
     <section class="content-dashboard">
@@ -68,6 +68,6 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
     </section>
 </main>
 
-<?php include __DIR__ . '/../app/footer.php'; ?>
+<?php include __DIR__ . '/app/footer.php'; ?>
 </body>
 </html>

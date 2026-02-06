@@ -18,7 +18,7 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 </head>
 <body>
 
-<?php include __DIR__ . '/../app/header.php'; ?>
+<?php include __DIR__ . '/app/header.php'; ?>
 
 <main>
     <!-- HERO -->
@@ -71,7 +71,7 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
     </section>
 </main>
 
-<?php include __DIR__ . '/../app/footer.php'; ?>
+<?php include __DIR__ . '/app/footer.php'; ?>
 
 <!-- JS -->
 <script src="js/main.js"></script>
