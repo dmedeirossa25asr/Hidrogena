@@ -6,12 +6,12 @@ require_once __DIR__ . '/../config/database.php';
 // Solo Admin puede acceder
 check_login();
 if ($_SESSION['tipo'] !== 'Admin') {
-    header('Location: /Hidrogena/public/index.php');
+    header('Location: /index.php');
     exit;
 }
 
 $lang = $_SESSION['lang'] ?? 'es';
-$translationsAll = include __DIR__ . '/../public/lang/lang.php';
+$translationsAll = include __DIR__ . '/../lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $mensaje = '';

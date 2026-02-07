@@ -12,14 +12,14 @@ $logged_in = isset($_COOKIE['usuario']);
 
 <header class="main-header">
     <div class="logo">
-        <a href="index.php"><img src="img/logo.png" alt="Hidrógena"></a>
+        <a href="/index.php"><img src="/img/logo.png" alt="Hidrógena"></a>
     </div>
 
     <nav class="nav" id="nav-menu">
-        <a href="index.php" <?php if ($currentPage === 'index.php') echo 'class="active"'; ?>><?= htmlspecialchars($translations['inicio']) ?></a>
-        <a href="index.php#servicios"><?= htmlspecialchars($translations['servicios']) ?></a>
-        <a href="index.php#control"><?= htmlspecialchars($translations['centro_control']) ?></a>
-        <a href="index.php#pedidos"><?= htmlspecialchars($translations['pedidos']) ?></a>
+        <a href="/index.php" <?php if ($currentPage === 'index.php') echo 'class="active"'; ?>><?= htmlspecialchars($translations['inicio']) ?></a>
+        <a href="/index.php#servicios"><?= htmlspecialchars($translations['servicios']) ?></a>
+        <a href="/index.php#control"><?= htmlspecialchars($translations['centro_control']) ?></a>
+        <a href="/index.php#pedidos"><?= htmlspecialchars($translations['pedidos']) ?></a>
     </nav>
 
     <div class="header-right">
@@ -29,7 +29,7 @@ $logged_in = isset($_COOKIE['usuario']);
             <a href="?lang=eu" <?php if ($lang === 'eu') echo 'class="active-lang"'; ?>>EU</a>
         </div>
 
-        <a href="<?= $logged_in ? 'dashboard.php' : 'login.php' ?>" class="login-icon">
+        <a href="<?= $logged_in ? '/dashboard.php' : '/login.php' ?>" class="login-icon">
             <i class="fas fa-user fa-lg"></i>
         </a>
 
