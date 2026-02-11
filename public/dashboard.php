@@ -31,12 +31,12 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
                 <div class="card">
                     <h3>Crear usuarios</h3>
                     <p>Agrega nuevos usuarios al sistema.</p>
-                    <a href="#" class="btn">Ir</a>
+                    <a href="crear_usuarios.php" class="btn">Ir</a>
                 </div>
                 <div class="card">
                     <h3>Eliminar usuarios</h3>
                     <p>Elimina usuarios existentes de forma segura.</p>
-                    <a href="/pages/eliminar_usuarios.php" class="btn">Ir</a>
+                    <a href="eliminar_usuarios.php" class="btn">Ir</a>
                 </div>
                 <div class="card">
                     <h3>Gestionar Base de Datos</h3>
