@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$host = "10.14.1.206";
+$host = "192.168.100.245";
 $port = "1521";
 $serviceName  = "pdb_hidrogena";
 $username = "hidrogena";
