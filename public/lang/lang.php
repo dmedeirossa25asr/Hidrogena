@@ -1,0 +1,140 @@
+<?php
+return [
+    'es' => [
+        'inicio' => 'Inicio',
+        'servicios' => 'Servicios',
+        'centro_control' => 'Centro de Control',
+        'pedidos' => 'Pedidos',
+        'login_title' => 'Iniciar Sesión',
+        'usuario' => 'Usuario',
+        'contrasena' => 'Contraseña',
+        'repetir_contrasena' => 'Repetir contraseña',
+        'registro' => 'Registrarse',
+        'ingresar' => 'Ingresar',
+        'no_cuenta' => '¿Aún no tienes cuenta?',
+        'registrarse' => 'Regístrate aquí',
+        'ya_cuenta' => '¿Ya tienes una cuenta?',
+        'iniciar_sesion' => 'Inicia sesión aquí',
+        'login_error' => 'Usuario o contraseña incorrectos',
+
+        'proyecto_titulo' => 'Proyecto de Hidrógeno Verde',
+        'proyecto_desc' => 'El Gobierno Vasco ha lanzado un proyecto piloto de innovación energética centrado en la producción, almacenamiento y distribución de hidrógeno verde.',
+        'proyecto_detalle' => 'La hidrogenera combina placas solares fotovoltaicas de alta eficiencia con aerogeneradores de última generación, asegurando una producción constante.',
+        'proyecto_extra' => 'Además, se integran mecanismos de predicción de demanda y algoritmos de optimización energética.',
+
+        'servicio_1' => 'Producción sostenible: Hidrógeno 100% renovable.',
+        'servicio_2' => 'Almacenamiento inteligente: Monitoreo de presión y capacidad en tiempo real.',
+        'servicio_3' => 'Distribución segura: Transporte trazable a empresas colaboradoras.',
+        'servicio_4' => 'Optimización energética: Algoritmos que ajustan la producción según demanda.',
+
+        'control_desc' => 'Nuestro centro de control realiza supervisión integral de producción y distribución.',
+        'control_seguridad' => 'Comunicación mediante VPN segura y encriptada.',
+        'control_informes' => 'Se generan informes diarios y estadísticos para análisis de eficiencia.',
+
+        'pedido_desc' => 'Las empresas pueden realizar pedidos de hidrógeno verde directamente en la plataforma.',
+        'empresa' => 'Nombre de la empresa',
+        'email' => 'Correo electrónico de contacto',
+        'cantidad' => 'Cantidad de hidrógeno (kg)',
+        'comentarios' => 'Comentarios u observaciones adicionales',
+        'enviar' => 'Enviar pedido',
+
+        'hidrogeno_verde' => 'Hidrógeno Verde',
+        'financiado_gob' => 'Proyecto financiado por el Gobierno Vasco',
+        'terms' => 'Términos y Condiciones',
+        'privacy' => 'Política de Privacidad',
+        'safety' => 'Política de Seguridad',
+        'all_rights' => 'Todos los derechos reservados'
+        
+    ],
+    'en' => [
+        'inicio' => 'Home',
+        'servicios' => 'Services',
+        'centro_control' => 'Control Center',
+        'pedidos' => 'Orders',
+        'login_title' => 'Login',
+        'usuario' => 'Username',
+        'contrasena' => 'Password',
+        'repetir_contrasena' => 'Repeat password',
+        'registro' => 'Register',
+        'ingresar' => 'Sign In',
+        'no_cuenta' => "Don't have an account yet?",
+        'ya_cuenta' => "Already have an account?",
+        'iniciar_sesion' => "Log in here",
+        'registrarse' => "Register here",
+
+        'login_error' => 'Incorrect username or password',
+
+        'proyecto_titulo' => 'Green Hydrogen Project',
+        'proyecto_desc' => 'The Basque Government has launched a pilot energy innovation project focused on green hydrogen.',
+        'proyecto_detalle' => 'The hydrogen station combines high-efficiency photovoltaic panels with state-of-the-art wind turbines.',
+        'proyecto_extra' => 'Demand prediction mechanisms and energy optimization algorithms are integrated.',
+
+        'servicio_1' => 'Sustainable production: 100% renewable hydrogen.',
+        'servicio_2' => 'Smart storage: Real-time monitoring of pressure and capacity.',
+        'servicio_3' => 'Safe distribution: Traceable transport to partner companies.',
+        'servicio_4' => 'Energy optimization: Algorithms adjust production according to demand.',
+
+        'control_desc' => 'Our control center supervises production and distribution.',
+        'control_seguridad' => 'Communication via secure and encrypted VPN.',
+        'control_informes' => 'Daily and statistical reports are generated for efficiency analysis.',
+
+        'pedido_desc' => 'Companies can place green hydrogen orders directly on the platform.',
+        'empresa' => 'Company name',
+        'email' => 'Contact email',
+        'cantidad' => 'Amount of hydrogen (kg)',
+        'comentarios' => 'Additional comments or notes',
+        'enviar' => 'Send order',
+
+        'hidrogeno_verde' => 'Green Hydrogen',
+        'financiado_gob' => 'Project funded by the Basque Government',
+        'terms' => 'Terms & Conditions',
+        'privacy' => 'Privacy Policy',
+        'safety' => 'Safety Policy',
+        'all_rights' => 'All rights reserved'
+    ],
+    'eu' => [
+        'inicio' => 'Hasiera',
+        'servicios' => 'Zerbitzuak',
+        'centro_control' => 'Kontrol Zentroa',
+        'pedidos' => 'Eskariak',
+        'login_title' => 'Saioa Hasi',
+        'usuario' => 'Erabiltzailea',
+        'contrasena' => 'Pasahitza',
+        'repetir_contrasena' => 'Pasahitza errepikatu',
+        'registro' => 'Erregistratu',
+        'ingresar' => 'Sartu',
+        'no_cuenta' => "Oraindik ez duzu konturik?",
+        'registrarse' => "Erregistratu hemen",
+        'ya_cuenta' => "Jadanik kontua baduzu?",
+        'iniciar_sesion' => "Hasi saioa hemen",
+        'login_error' => 'Erabiltzaile edo pasahitz okerra',
+
+        'proyecto_titulo' => 'Hidrogeno Berdea Proiektua',
+        'proyecto_desc' => 'Eusko Jaurlaritza pilotu-proiektu bat jarri du abian hidrogeno berdearen ekoizpenean.',
+        'proyecto_detalle' => 'Hidrogenera fotovoltaiko panelen eta azken belaunaldiko haize-errota teknologien konbinazioa.',
+        'proyecto_extra' => 'Eskaeraren aurreikuspen mekanismoak eta energia optimizatzeko algoritmoak integratzen dira.',
+
+        'servicio_1' => 'Ekoizpen jasangarria: 100% berriztagarria den hidrogenoa.',
+        'servicio_2' => 'Biltegiratze adimentsua: Presioa eta edukiera denbora errealean kontrolatuz.',
+        'servicio_3' => 'Banaketa segurua: Garraio jarraituak lankidetza-enpresetara.',
+        'servicio_4' => 'Energia optimizatzea: Algoritmoak ekoizpena eskaeraren arabera egokitzen du.',
+
+        'control_desc' => 'Gure kontrol zentroak ekoizpena eta banaketa modu integralean gainbegiratzen ditu.',
+        'control_seguridad' => 'Komunikazioa VPN segurua eta enkriptatua erabiliz egiten da.',
+        'control_informes' => 'Eguneko eta estatistikako txostenak sortzen dira efizientzia aztertzeko.',
+
+        'pedido_desc' => 'Enpresek zuzenean eska dezakete hidrogeno berdea plataforman.',
+        'empresa' => 'Enpresaren izena',
+        'email' => 'Kontaktuko posta elektronikoa',
+        'cantidad' => 'Hidrogeno kopurua (kg)',
+        'comentarios' => 'Iruzkin edo oharrak',
+        'enviar' => 'Bidali eskaera',
+
+        'hidrogeno_verde' => 'Hidrogeno Berdea',
+        'financiado_gob' => 'Proiektua Eusko Jaurlaritzak finantzatutako',
+        'terms' => 'Baldintzak',
+        'privacy' => 'Pribatutasun Politika',
+        'safety' => 'Segurtasun Politika',
+        'all_rights' => 'Eskubide guztiak erreserbatuta'
+    ]
+];
