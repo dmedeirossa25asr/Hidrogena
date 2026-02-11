@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/app/auth.php';
+require_once __DIR__ . '/config/database.php';
 
 $lang = $_SESSION['lang'] ?? 'es';
 $translationsAll = include __DIR__ . '/lang/lang.php';
@@ -21,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Las contraseñas no coinciden.";
     } else {
         // Verificar si el usuario ya existe
-        global $conn;
         $sql_check = "SELECT idUsuario FROM usuarios WHERE usuario = :usuario";
         $stmt_check = oci_parse($conn, $sql_check);
         oci_bind_by_name($stmt_check, ':usuario', $usuario);
@@ -30,12 +30,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (oci_fetch_assoc($stmt_check)) {
             $error = "El usuario ya existe.";
         } else {
-            if (register_user($usuario, $contrasena)) {
+            $sql_id = "SELECT NVL(MAX(idUsuario),0)+1 AS NEW_ID FROM usuarios";
+            $stmt_id = oci_parse($conn, $sql_id);
+            oci_execute($stmt_id);
+            $row_id = oci_fetch_assoc($stmt_id);
+            $new_id = $row_id['NEW_ID'];
+
+            // Insertar usuario
+            $sql_insert = "INSERT INTO usuarios (idUsuario, usuario, contrasena, tipo)
+                           VALUES (:id, :usuario, :contrasena, 'Cliente')";
+            $stmt_insert = oci_parse($conn, $sql_insert);
+            oci_bind_by_name($stmt_insert, ':id', $new_id);
+            oci_bind_by_name($stmt_insert, ':usuario', $usuario);
+            oci_bind_by_name($stmt_insert, ':contrasena', $contrasena);
+
+            $result = @oci_execute($stmt_insert, OCI_COMMIT_ON_SUCCESS);
+            if ($result) {
                 $success = "Registro exitoso. Ya puedes iniciar sesión.";
             } else {
-                $error = "Hubo un error al registrar el usuario.";
+                $e = oci_error($stmt_insert);
+                $error = "Hubo un error al registrar el usuario: " . ($e['message'] ?? "desconocido");
             }
+
+            oci_free_statement($stmt_insert);
+            oci_free_statement($stmt_id);
         }
+
+        oci_free_statement($stmt_check);
     }
 }
 ?>
@@ -61,9 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2>Registrarse</h2>
 
         <?php if ($error): ?>
-            <p class="error"><?= $error ?></p>
+            <p class="error"><?= htmlspecialchars($error) ?></p>
         <?php elseif ($success): ?>
-            <p class="success"><?= $success ?></p>
+            <p class="success"><?= htmlspecialchars($success) ?></p>
         <?php endif; ?>
 
         <form method="POST">

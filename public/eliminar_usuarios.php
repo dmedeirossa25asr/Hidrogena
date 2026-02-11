@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../app/auth.php';
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/app/auth.php';
+require_once __DIR__ . '/config/database.php';
 
 // Solo Admin puede acceder
 check_login();
@@ -11,7 +11,7 @@ if ($_SESSION['tipo'] !== 'Admin') {
 }
 
 $lang = $_SESSION['lang'] ?? 'es';
-$translationsAll = include __DIR__ . '/../lang/lang.php';
+$translationsAll = include __DIR__ . '/lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $mensaje = '';
@@ -50,14 +50,14 @@ while ($row = oci_fetch_assoc($stmt_all)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/general.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
-<?php include __DIR__ . '/../app/header.php'; ?>
+<?php include __DIR__ . '/app/header.php'; ?>
 
 <main class="content">
     <h2 class="page-title"><?= $translations['eliminar_usuarios'] ?? 'Eliminar usuarios' ?></h2>
@@ -100,6 +100,6 @@ while ($row = oci_fetch_assoc($stmt_all)) {
     </div>
 </main>
 
-<?php include __DIR__ . '/../app/footer.php'; ?>
+<?php include __DIR__ . '/app/footer.php'; ?>
 </body>
 </html>
