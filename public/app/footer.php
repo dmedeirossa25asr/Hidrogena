@@ -1,6 +1,7 @@
 <footer class="main-footer">
     <div class="footer-container">
         <p>© 2026 Hidrogena · Hidrógeno Verde</p>
+        <!-- Short Echo Tag en PHP, necesita al menos PHP 5.4+ -->
         <p><?= $translations['financiado_gob'] ?></p>
 
         <div class="socials">

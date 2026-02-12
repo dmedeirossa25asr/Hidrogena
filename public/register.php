@@ -3,8 +3,10 @@ session_start();
 require_once __DIR__ . '/app/auth.php';
 require_once __DIR__ . '/config/database.php';
 
+// Establece el idioma
 $lang = $_SESSION['lang'] ?? 'es';
 $translationsAll = include __DIR__ . '/lang/lang.php';
+// Selecciona solo las traducciones correspondientes al idioma actual.
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $error = '';
@@ -21,8 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($contrasena !== $contrasena2) {
         $error = "Las contraseñas no coinciden.";
     } else {
-        // Verificar si el usuario ya existe
+        // Verificar si el usuario ya existe. sql_check es una regla de integridad.
         $sql_check = "SELECT idUsuario FROM usuarios WHERE usuario = :usuario";
+        // Preparar la consulta
         $stmt_check = oci_parse($conn, $sql_check);
         oci_bind_by_name($stmt_check, ':usuario', $usuario);
         oci_execute($stmt_check);
@@ -30,20 +33,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (oci_fetch_assoc($stmt_check)) {
             $error = "El usuario ya existe.";
         } else {
+            // Obtener el nuevo ID
             $sql_id = "SELECT NVL(MAX(idUsuario),0)+1 AS NEW_ID FROM usuarios";
             $stmt_id = oci_parse($conn, $sql_id);
-            oci_execute($stmt_id);
-            $row_id = oci_fetch_assoc($stmt_id);
-            $new_id = $row_id['NEW_ID'];
+            oci_execute($stmt_id); // Ejecutar la consulta
+            $row_id = oci_fetch_assoc($stmt_id); // Obtener el nuevo ID
+            $new_id = $row_id['NEW_ID']; // Nuevo ID
 
             // Insertar usuario
             $sql_insert = "INSERT INTO usuarios (idUsuario, usuario, contrasena, tipo)
                            VALUES (:id, :usuario, :contrasena, 'Cliente')";
             $stmt_insert = oci_parse($conn, $sql_insert);
+            // Vincular parámetros
             oci_bind_by_name($stmt_insert, ':id', $new_id);
             oci_bind_by_name($stmt_insert, ':usuario', $usuario);
             oci_bind_by_name($stmt_insert, ':contrasena', $contrasena);
 
+            // Ejecutar la consulta
             $result = @oci_execute($stmt_insert, OCI_COMMIT_ON_SUCCESS);
             if ($result) {
                 $success = "Registro exitoso. Ya puedes iniciar sesión.";
@@ -52,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = "Hubo un error al registrar el usuario: " . ($e['message'] ?? "desconocido");
             }
 
+            // Liberar recursos
             oci_free_statement($stmt_insert);
             oci_free_statement($stmt_id);
         }

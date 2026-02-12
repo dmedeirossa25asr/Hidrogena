@@ -1,4 +1,5 @@
 <?php
+// Inicia la sesión para poder usar $_SESSION (para guardar el idioma seleccionado o datos de usuario).
 session_start();
 $translationsAll = include __DIR__ . '/lang/lang.php';
 $lang = $_SESSION['lang'] ?? 'es';
@@ -32,6 +33,7 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
     <!-- PROYECTO -->
     <section class="content">
+        <!-- /</? Equivalente a /</?php echo  -->
         <h2><?= $translations['proyecto_titulo'] ?></h2>
         <p><?= $translations['proyecto_desc'] ?></p>
         <p><?= $translations['proyecto_detalle'] ?></p>

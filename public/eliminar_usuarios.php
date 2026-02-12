@@ -12,6 +12,7 @@ if ($_SESSION['tipo'] !== 'Admin') {
 
 $lang = $_SESSION['lang'] ?? 'es';
 $translationsAll = include __DIR__ . '/lang/lang.php';
+// Selecciona solo las traducciones correspondientes al idioma actual.
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $mensaje = '';

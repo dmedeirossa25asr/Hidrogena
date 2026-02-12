@@ -24,6 +24,7 @@ $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 <main>
     <section class="content-dashboard">
+        <!-- Contenido del dashboard. htmlspecialchars() es una función de PHP que se usa para evitar que alguien inyecte scripts maliciosos-->
         <h1>Bienvenido, <?= htmlspecialchars($_SESSION['tipo']); ?></h1>
 
         <div class="cards">

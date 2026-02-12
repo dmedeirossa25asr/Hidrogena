@@ -1,19 +1,22 @@
 <?php
+// Inicia la sesión para poder usar $_SESSION (para guardar el idioma seleccionado o datos de usuario).
 session_start();
 require_once __DIR__ . '/app/auth.php';
 
+// Establece el idioma
 $lang = $_SESSION['lang'] ?? 'es';
 $translationsAll = include __DIR__ . '/lang/lang.php';
 $translations = $translationsAll[$lang] ?? $translationsAll['es'];
 
 $error = '';
+// Procesa el formulario de inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $contrasena = $_POST['contrasena'] ?? '';
 
     if (login($usuario, $contrasena)) {
         $_SESSION['usuario'] = $usuario;
-        setcookie('usuario', $usuario, time() + 86400, "/");
+        setcookie('usuario', $usuario, time() + 86400, "/"); // 1 Día
         header('Location: dashboard.php');
         exit;
     } else {
@@ -22,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <!DOCTYPE html>
+<!-- HTML con PHP embebido -->
 <html lang="<?= $lang ?>">
 <head>
     <meta charset="UTF-8">
@@ -47,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST">
             <input type="text" name="usuario" placeholder="<?= $translations['usuario'] ?>" required>
             <input type="password" name="contrasena" placeholder="<?= $translations['contrasena'] ?>" required>
+            <!-- Los placeholder usan traducciones dinámicas -->
             <button type="submit"><?= $translations['ingresar'] ?></button>
         </form>
 

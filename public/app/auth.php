@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config/database.php';
 
-// LOGIN
+// LOGIN -- Inicia sesión de un usuario
 function login($usuario, $contrasena) {
     global $conn;
 
@@ -12,21 +12,23 @@ function login($usuario, $contrasena) {
     oci_bind_by_name($stmt, ':usuario', $usuario);
     oci_execute($stmt);
 
+    // Recupera la fila del usuario como array asociativo. Si no existe, devuelve false.
     $row = oci_fetch_assoc($stmt);
 
+    // Comprueba si el usuario existe. Guarda la contraseña almacenada en BD.
     if ($row) {
         $stored = $row['CONTRASENA'];
 
-        // Caso 1: contraseña hasheada
+        // Caso 1: Compara la contraseña introducida con el hash.
         if (password_verify($contrasena, $stored)) {
             $_SESSION['idUsuario'] = $row['IDUSUARIO'];
             $_SESSION['tipo'] = $row['TIPO'];
             return true;
         }
 
-        // Caso 2: contraseña en texto plano
+        // Caso 2: Compara la contraseña introducida con la contraseña en texto plano.
         if ($stored === $contrasena) {
-            // Migramos automáticamente a hash
+            // Genera automáticamente a hash -- Indica a PHP que utilice el algoritmo de hash más seguro.
             $hash = password_hash($contrasena, PASSWORD_DEFAULT);
             $update = "UPDATE usuarios SET contrasena = :hash WHERE idUsuario = :id";
             $stmt2 = oci_parse($conn, $update);
@@ -43,7 +45,7 @@ function login($usuario, $contrasena) {
     return false;
 }
 
-// CHECK LOGIN
+// CHECK LOGIN -- Redirige a index.php si no hay sesión iniciada
 function check_login() {
     if (!isset($_SESSION['idUsuario'])) {
         header('Location: index.php');
@@ -51,11 +53,12 @@ function check_login() {
     }
 }
 
-// LOGOUT
+// LOGOUT -- Cierra la sesión del usuario
 function logout() {
     $_SESSION = [];
     session_destroy();
 
+    // Elimina las cookies de sesión
     if (isset($_COOKIE['usuario'])) {
         setcookie('usuario', '', time() - 3600, "/");
     }
@@ -64,7 +67,7 @@ function logout() {
     exit;
 }
 
-// REGISTRO
+// REGISTRO -- Crea un nuevo usuario
 function register_user($usuario, $contrasena) {
     global $conn;
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
@@ -76,6 +79,7 @@ function register_user($usuario, $contrasena) {
     oci_bind_by_name($stmt, ':contrasena', $hash);
     oci_bind_by_name($stmt, ':tipo', $tipo);
 
+    // Ejecuta la consulta y se utiliza el operador de control de errores
     $result = @oci_execute($stmt, OCI_COMMIT_ON_SUCCESS);
     return $result;
 }

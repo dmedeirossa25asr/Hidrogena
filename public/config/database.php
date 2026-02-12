@@ -13,6 +13,7 @@ $connectionString = "(DESCRIPTION=
     (CONNECT_DATA=(SERVICE_NAME=$serviceName))
 )";
 
+// Función nativa de PHP para conectarse a Oracle.
 $conn = oci_connect($username, $password, $connectionString);
 if (!$conn) {
     $e = oci_error();
